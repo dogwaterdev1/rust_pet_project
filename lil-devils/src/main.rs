@@ -1,16 +1,17 @@
-use std::io;
+// use rand::Rng;
+// use std::cmp::Ordering;
+// use std::io;
+mod guessing_game;
 
 fn main() {
-    println!("SELECT CHOICE");
-    println!("INPUT A GUESS:");
+    // call guessing game
+    let guessing_game_success: u32 = guessing_game::guessing_game_fn();
 
-    // get a guess, create a new tring
-    let mut guess = String::new();
+    if guessing_game_success >= 1{
+        println!("\nCongrats! you've won");
+    }
+    else if guessing_game_success <= 0 {
+        println!("\nSorry, you lost the guessing game");
 
-    // Used to read the guess and output an error if thrown
-    io::stdin()
-        .read_line(&mut guess)
-        .expect("Failed to read the line. Try an acceptable format...");
-
-    println!("Guess Inputted: {guess}");
+    }
 }
