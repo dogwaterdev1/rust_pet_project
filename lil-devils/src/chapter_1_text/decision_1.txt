@@ -1,2 +1,5 @@
-This is the decision 1 text. 
-Do you like Blue or Purple?
+You walk into a bar, you see a mustachioed with an ace of spades tattooed on his neck.
+What do you do? 
+-----
+1. Walk Up To Him
+2. Nope right the fuck out
