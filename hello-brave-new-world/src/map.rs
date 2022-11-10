@@ -63,7 +63,7 @@ impl Map {
             visible_tiles : vec![false; 80*50]
         };
 
-        const MAX_ROOMS : i32 = 30;
+        const MAX_ROOMS : i32 = 100;
         const MIN_SIZE : i32 = 6;
         const MAX_SIZE : i32 = 10;
 
