@@ -1,5 +1,5 @@
 extern crate exitcode;
-use std::{collections::HashMap, process};
+use std::process;
 mod chapter_1;
 mod guessing_game;
 mod helper_functions;
