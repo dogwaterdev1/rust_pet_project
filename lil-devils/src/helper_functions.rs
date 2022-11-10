@@ -80,6 +80,7 @@ pub fn get_user_input(choices: &HashMap<u32, String>) -> u32 {
             return parsed_opt;
         }
         println!("Invalid choices, please type the number of a valid option");
+        user_input.clear(); // clear the string
     }
     // get the selected option by parsing to a u32
 
