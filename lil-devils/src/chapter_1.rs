@@ -2,9 +2,10 @@ use crate::helper_functions;
 use std::collections::HashMap;
 use std::env;
 use std::fs;
+use std::option;
 
 // TODO: Consolidate code into a function, starting to violate DRY
-pub fn decision_1() -> () {
+pub fn decision_1() -> (u32) {
     // this is how you find the current directory in/calling from
     // println!("{}", std::env::current_dir().unwrap().display());
     // read the data associated with choice
@@ -14,24 +15,25 @@ pub fn decision_1() -> () {
     let content = helper_functions::read_file_text(&filepath);
     println!("{}", &content);
     let choices = helper_functions::read_file_choices(&filepath);
-    println!("{:?}", &choices);
 
     for (key, value) in choices.iter() {
-        println!("{}: {}", key, value);
+        println!("{}", value);
     }
 
-    // TODO: Prompt User Input - write this helper in helper_functions.rs
+    // Get User Input - write this helper in helper_functions.rs
+    let option_selected = helper_functions::get_user_input(&choices);
 
-    // // TODO: out way to parse actions. I'm thinking of ------ in the file
-    // let choice_num: u32 = 2;
-    // let chosen_action = choices
-    //     .get(&choice_num)
-    //     .expect("Could not retrieve value from Hashmap"); //.copied();
+    // print out selected options
+    let chosen_action = choices
+        .get(&option_selected)
+        .expect("Could not retrieve value from Hashmap"); //.copied();
+    println!("SELECTED OPTION: {}\n", chosen_action);
 
-    // println!("{}", chosen_action);
+    return option_selected;
 }
 
-pub fn decision_2() -> () {
+pub fn decision_2() -> (u32) {
+    // have him say some dialogue and if you dont leave he holds you up and forces you to guess a number.
     // // read the data associated with choice
     // //let content: str = read_file("./chapter_1_text/decision_2.txt");
     // let content = fs::read_to_string("./src/chapter_1_text/decision_2.txt")
@@ -49,4 +51,24 @@ pub fn decision_2() -> () {
     //     .expect("Could not retrieve value from Hashmap"); //.copied();
 
     // println!("{}", score);
+
+    let filepath = String::from("./src/chapter_1_text/decision_2.txt");
+    let content = helper_functions::read_file_text(&filepath);
+    println!("{}", &content);
+    let choices = helper_functions::read_file_choices(&filepath);
+
+    for (key, value) in choices.iter() {
+        println!("{}", value);
+    }
+
+    // Get User Input - write this helper in helper_functions.rs
+    let option_selected = helper_functions::get_user_input(&choices);
+
+    // print out selected options
+    let chosen_action = choices
+        .get(&option_selected)
+        .expect("Could not retrieve value from Hashmap"); //.copied();
+    println!("SELECTED OPTION: {}\n", chosen_action);
+
+    return option_selected;
 }

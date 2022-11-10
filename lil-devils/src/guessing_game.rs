@@ -9,7 +9,7 @@ pub fn guessing_game_fn() -> u32 {
     let mut counter: u32 = 0;
     // Guess a number program minigame. based off of code from https://doc.rust-lang.org/book/ch02-00-guessing-game-tutorial.html#comparing-the-guess-to-the-secret-number
     println!(
-        "Guess the number!\nBe careful, you only have {} guesses to get the right number!",
+        "'Well guess what. we're playing a game', He speaks as he prints his pistol through his shirt. \n\t'Guess the number and I'll let you live; you have only {} guesses to get it right'.",
         &max_guesses
     );
     // create the secret number
@@ -34,19 +34,19 @@ pub fn guessing_game_fn() -> u32 {
         println!("Guesses left: {}", guesses_left);
         match guess.cmp(&secret_number) {
             Ordering::Less => {
-                println!("Too small!");
+                println!("\t'Wrong. Too small.'");
                 counter = counter + 1;
             }
             Ordering::Greater => {
-                println!("Too big!");
+                println!("\t'Wrong. Too big.'");
                 counter = counter + 1;
             }
             Ordering::Equal => {
-                println!("You win!");
+                println!("\t'You win. You can leave.'");
                 return 1;
             }
         }
     }
-    println!("You failed to guess in the alloted number of guesses!");
+    println!("\t'You've lost.'");
     return 0;
 }
