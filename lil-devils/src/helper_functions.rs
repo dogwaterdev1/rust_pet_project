@@ -5,9 +5,7 @@ use std::env;
 use std::fs;
 use std::io;
 
-/// .
-/// Splits on ----- and returns the first half of the iterator
-// TODO: Consolidate code into a function, starting to violate DRY
+/// Read the text from the file and split on '-----'
 pub fn read_file_text(path: &String) -> (String) {
     let content = fs::read_to_string(path).expect("Failed to read text from file");
     let mut split_text = content.split("-----");
@@ -21,6 +19,7 @@ pub fn read_file_text(path: &String) -> (String) {
     return String::from(desired_text);
 }
 
+/// Read the file choices and split on '-----'
 pub fn read_file_choices(path: &String) -> (HashMap<u32, String>) {
     let content = fs::read_to_string(path).expect("Failed to read text from file");
     let mut split_text = content.split("-----");
@@ -48,13 +47,12 @@ pub fn read_file_choices(path: &String) -> (HashMap<u32, String>) {
     return choices;
 }
 
-/// .
-/// gets the current directory
+/// Gets the current directory
 pub fn current_dir() {
     println!("{}", std::env::current_dir().unwrap().display());
 }
 
-// TODO: get user input
+/// Get user input from the user
 pub fn get_user_input(choices: &HashMap<u32, String>) -> u32 {
     while true {
         let mut user_input = String::new();
@@ -63,19 +61,10 @@ pub fn get_user_input(choices: &HashMap<u32, String>) -> u32 {
             .read_line(&mut user_input)
             .expect("Failed to read line");
 
-        // check that there are no characters, otherwise program will hang.
-        // if user_input
-        //     .to_lowercase()
-        //     .chars()
-        //     .any(|c| matches!(c, 'a'..='z'))
-        // {
-        //     continue;
-        // }
         let mut parsed_opt = match user_input.trim().parse() {
             Ok(num) => num,
             Err(_) => continue,
         };
-
         if choices.contains_key(&parsed_opt) {
             return parsed_opt;
         }
@@ -83,6 +72,5 @@ pub fn get_user_input(choices: &HashMap<u32, String>) -> u32 {
         user_input.clear(); // clear the string
     }
     // get the selected option by parsing to a u32
-
     return 0;
 }

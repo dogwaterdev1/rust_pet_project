@@ -5,6 +5,7 @@ mod chapter_1;
 mod guessing_game;
 mod helper_functions;
 
+/// main program to run everything.
 fn main() {
     // decision 1
     let choice_1 = chapter_1::decision_1();
