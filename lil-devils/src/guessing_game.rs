@@ -2,6 +2,7 @@ use rand::Rng;
 use std::cmp::Ordering;
 use std::io;
 
+/// Final stage of the game. Forces you to guess
 pub fn guessing_game_fn() -> u32 {
     // create the max guessing counter
     let max_guesses: u32 = 10;
