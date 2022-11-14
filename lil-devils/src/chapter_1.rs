@@ -6,11 +6,6 @@ use std::option;
 
 /// First decision text, meant to be called from the main menu
 pub fn decision_1() -> (u32) {
-    // this is how you find the current directory in/calling from
-    // println!("{}", std::env::current_dir().unwrap().display());
-    // read the data associated with choice
-    // let content = fs::read_to_string("./src/chapter_1_text/decision_1.txt")
-    //     .expect("Failed to read decision 1 text");
     let filepath = String::from("./src/chapter_1_text/decision_1.txt");
     let content = helper_functions::read_file_text(&filepath);
     println!("{}", &content);

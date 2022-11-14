@@ -11,6 +11,8 @@ pub fn read_file_text(path: &String) -> (String) {
     let mut split_text = content.split("-----");
     // iterate over and get desired text
     let mut desired_text = "";
+
+    // println!("HERE BLAKEY BOI: {}", split_text.next().unwrap());
     for line in split_text {
         desired_text = line;
         break;

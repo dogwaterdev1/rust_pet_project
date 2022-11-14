@@ -10,7 +10,7 @@ pub fn guessing_game_fn() -> u32 {
     let mut counter: u32 = 0;
     // Guess a number program minigame. based off of code from https://doc.rust-lang.org/book/ch02-00-guessing-game-tutorial.html#comparing-the-guess-to-the-secret-number
     println!(
-        "'Well guess what. we're playing a game', He speaks as he prints his pistol through his shirt. \n\t'Guess the number and I'll let you live; you have only {} guesses to get it right'.",
+        "'Well let's play a game. you have only {} guesses to get the number from 1-100 right'.",
         &max_guesses
     );
     // create the secret number
